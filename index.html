@@ -16,13 +16,11 @@
         </canvas>
 
         <script>
-            const log = document.getElementById('log');
-
-            document.addEventListener('keydown', logKey);
-
-            function logKey(e) {
+            const logKey = (e) => {
                 console.log(`${e.code}`);
             }
+            document.addEventListener('keydown', logKey);
+
         </script>
 
         <script>
