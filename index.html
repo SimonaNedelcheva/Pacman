@@ -1,35 +1,53 @@
-<html>
+<html id="log">
     <head>
         <title>Hello</title>
+        <style>
+            html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+            }
+
+        </style>
     </head>
     <body>
+        <canvas id="canvas1" style="width: 100%; height: 100%;">
+
+        </canvas>
+
         <script>
-            console.log("s");
-            // alert('h2');
-            let i =0;
-            const pi = 3.14;
-            console.log("i, pi", i, pi);
-            const ala = (par1, par2) => {  // konstanta promenliva ala, koqto e funkciq
-                console.log("ala",par1, par2);
-            }
-            ala("piwww", pi);
+            const log = document.getElementById('log');
 
-            function bala(...par1){
-                console.log("bala",par1);
-            }
-            bala("i1", i);
+            document.addEventListener('keydown', logKey);
 
-            console.log("h1", document.getElementsByTagName("h1"));
+            function logKey(e) {
+                console.log(`${e.code}`);
+            }
+        </script>
+
+        <script>
+           const canvas = document.getElementById('canvas1');
+            const ctx = canvas.getContext('2d');
+            ctx.canvas.width = window.innerWidth;
+            ctx.canvas.height = window.innerHeight;
+
+            ctx.fillStyle = 'rgb(255, 255, 0)';
+            ctx.fillRect(0, 0 ,100, 100);
+            
+            ctx.fillStyle = 'rgb(0, 0, 0)';
+            ctx.beginPath();
+            ctx.moveTo(75, 50);
+            ctx.lineTo(100, 75);
+            ctx.lineTo(150, 25);
+            ctx.lineTo(75, 50);
+            ctx.fill();
+
+            ctx.fillStyle = 'rgb(0, 255, 0)';
+            ctx.beginPath();
+            ctx.arc(175, 175, 35, 0, Math.PI, false);  // Mouth (clockwise)
+            ctx.stroke();
 
 
         </script>
-        <h1>Title</h1>
-        <p onclick="alert('clicked')">lldlds
-            Added new line main
-        </p>
-        <div>
-            hfdjkokдфд
-            new branchh
-        </div>
     </body>
 </html>
